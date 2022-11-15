@@ -7,7 +7,7 @@ function Navbar1 () {
 	return (
 		<div>
 			<Link to={"/"}>
-			<Navbar bg='primary' variant="warning" expand="lg" className="mb-2">
+			<Navbar bg='primary' variant="warning" expand="lg" className="mb-2" border='warning'>
 			<Navbar.Brand href="#home">
             <img
               src={HomeBeer}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar1 from "../components/Navbar";
+import { Link } from "react-router-dom";
 
 
 function RandomBeer() {
@@ -23,6 +24,7 @@ function RandomBeer() {
 			<h1>Random Beer</h1>
 			            
             <div key={beers._id}>
+			<Link to={`/Beers/${beers._id}`}>
 				<img
 					style={{
 						resizeMode: "cover",
@@ -33,6 +35,7 @@ function RandomBeer() {
 				<p>{beers.name}</p>
 				<p>{beers.tagline}</p>
 				<p>{beers.contributed_by}</p>
+			</Link>
 			</div>
 			
 		</div>
