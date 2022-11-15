@@ -10,7 +10,7 @@ function Beers() {
 	useEffect(() => {
 		async function fetchBeers() {
 			const response = await axios.get(
-				"https://ih-beers-api2.herokuapp.com/beers"
+				"https://ironbeer-api.fly.dev/"
 			);
 			setBeers(response.data);
 		}
@@ -28,19 +28,19 @@ function Beers() {
 				return (
 					<div key={beer._id}>
 						<Container>
-							<Card className="bg-light text-white">
-								<Link to={`/Beers/${beer._id}`}>
+							<Card className="bg-dark text-white">
+								<Link to={`/Beers/${beer._id}`} className="link1" style={{fontSize: '2rem'}}>
 									<img
 										style={{
 											resizeMode: "cover",
 											height: 150,
 										}}
-										src={beer.image_url}
+										src={beer.image}
 										alt={beer.name}
 									/>
 									<p>{beer.name}</p>
-									<p>{beer.tagline}</p>
-									<p>{beer.contributed_by}</p>
+									<p className="link2" style={{fontSize: '1rem'}}>{beer.brewers_tips}</p>
+									<p className="link2" style={{fontSize: '1rem'}}>{beer.contributed_by}</p>
 								</Link>
 							</Card>
 						</Container>

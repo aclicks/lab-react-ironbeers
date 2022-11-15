@@ -10,10 +10,10 @@ function HomePage() {
 		<div>
 			<Container>
 			<Card className="bg-dark text-white">
-				<Link to={"/Beers/"}>
+				<Link to={"/Beers/"} >
 					<Card.Img variant="top" src={beers} />
 					<Card.ImgOverlay>
-						<Card.Title>All Beers</Card.Title>
+						<Card.Title className="link1" style={{fontSize: '3rem'}}>All Beers</Card.Title>
 					</Card.ImgOverlay>
 				</Link>
 			</Card>
@@ -21,7 +21,7 @@ function HomePage() {
 				<Link to={"/Random-Beer/"}>
 					<Card.Img variant="top" src={randomBeer} />
 					<Card.ImgOverlay>
-						<Card.Title>Random Beer</Card.Title>
+						<Card.Title className="link1" style={{fontSize: '3rem'}}>Random Beer</Card.Title>
 					</Card.ImgOverlay>
 				</Link>
 			</Card>
@@ -29,7 +29,7 @@ function HomePage() {
 				<Link to={""}>
 					<Card.Img variant="top" src={newBeer} />
 					<Card.ImgOverlay>
-						<Card.Title>Add Beer</Card.Title>
+						<Card.Title className="link1" style={{fontSize: '3rem'}}>Add Beer</Card.Title>
 					</Card.ImgOverlay>
 				</Link>
 			</Card>
