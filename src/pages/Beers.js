@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar1 from "../components/Navbar";
 import { Link } from "react-router-dom";
-import { Card, Container } from "react-bootstrap";
+import { Card, Container, Image } from "react-bootstrap";
 
 function Beers() {
 	const [beers, setBeers] = useState([]);
@@ -30,7 +30,7 @@ function Beers() {
 						<Container>
 							<Card className="bg-dark text-white">
 								<Link to={`/Beers/${beer._id}`} className="link1" style={{fontSize: '2rem'}}>
-									<img
+									<Image fluid rounded
 										style={{
 											resizeMode: "cover",
 											height: 150,
