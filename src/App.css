@@ -2,3 +2,9 @@
   text-align: center;
   align-items: center;
 }
+
+p {
+  padding-left: 20px;
+  padding-right: 20px;
+  text-justify: auto;
+}

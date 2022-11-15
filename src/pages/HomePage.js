@@ -1,12 +1,14 @@
-import Card from 'react-bootstrap/Card';
+import {Container, Card} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import beers from "../assets/beers.png";
 import randomBeer from "../assets/random-beer.png"
 import newBeer from "../assets/new-beer.png";
 
+
 function HomePage() {
 	return (
 		<div>
+			<Container>
 			<Card className="bg-dark text-white">
 				<Link to={"/Beers/"}>
 					<Card.Img variant="top" src={beers} />
@@ -31,6 +33,7 @@ function HomePage() {
 					</Card.ImgOverlay>
 				</Link>
 			</Card>
+			</Container>
 		</div>
 	);
 }
