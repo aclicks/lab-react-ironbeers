@@ -26,7 +26,7 @@ function HomePage() {
 				</Link>
 			</Card>
 			<Card className="bg-dark text-white">
-				<Link to={""}>
+				<Link to={"/Add-Beer/"}>
 					<Card.Img variant="top" src={newBeer} />
 					<Card.ImgOverlay>
 						<Card.Title className="link1" style={{fontSize: '3rem'}}>Add Beer</Card.Title>

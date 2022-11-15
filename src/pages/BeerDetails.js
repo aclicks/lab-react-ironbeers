@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, Container, Image } from "react-bootstrap";
+import toast from 'react-hot-toast'
 
 function BeerDetails() {
 	const { beerId } = useParams();
@@ -10,7 +11,7 @@ function BeerDetails() {
 	const navigate = useNavigate();
 
 	const [showForm, setShowForm] = useState(false);
-	const [showForm2, setShowForm2] = useState(true);
+
 	const [reload, setReload] = useState(false);
 
 	const [form, setForm] = useState({
@@ -39,7 +40,12 @@ function BeerDetails() {
 
 	async function handleDelete(e) {
 		await axios.delete(`https://ironbeer-api.fly.dev/delete/${beerId}`);
-		navigate("/api-teste");
+		navigate("/");
+		toast.success("Beer deleted!");
+	}
+
+	function handleReload() {
+		setReload(!reload);
 	}
 
 	function handleChange(e) {
@@ -52,12 +58,16 @@ function BeerDetails() {
 		try {
 			const clone = { ...form };
 			delete clone._id;
-			await axios.put(`https://ironbeer-api.fly.dev/new/${beerId}`, clone);
+			await axios.put(`https://ironbeer-api.fly.dev/edit/${beerId}`, clone);
 			setReload(!reload);
 			setShowForm(false);
 		} catch (error) {
 			console.log(error);
 		}
+
+		handleReload();
+		toast.success("Beer Saved!");
+		setShowForm(false);
 	}
 
 	return (
@@ -67,15 +77,13 @@ function BeerDetails() {
 				<Card className="bg-dark text-white">
 					{!showForm && (
 						<div>
-							<Image fluid src={beer.image} alt={beer.name} />
+							<Image fluid rounded src={beer.image} alt={beer.name} />
 							<p>
 								{beer.name} - Since {beer.first_brewed}
 							</p>
 							<p>{beer.description}</p>
 							<p>{beer.brewers_tips}</p>
-							<p>
-								Att. level: {beer.attenuation_level}
-							</p>
+							<p>Att. level: {beer.attenuation_level}</p>
 							<p>{beer.contributed_by}</p>
 						</div>
 					)}
@@ -116,7 +124,7 @@ function BeerDetails() {
 								<input
 									type="text"
 									onChange={handleChange}
-									name="contributed_by"
+									name="contributedBy"
 									value={form.contributed_by}
 								/>
 							</div>

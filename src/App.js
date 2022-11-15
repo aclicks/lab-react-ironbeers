@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import Beers from "./pages/Beers";
 import RandomBeer from "./pages/Random-Beer";
 import BeerDetails from "./pages/BeerDetails";
+import AddBeer from "./pages/AddBeer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Toaster } from 'react-hot-toast'
 
@@ -16,7 +17,7 @@ function App() {
 				<Route path="/Beers" element={<Beers />} />
 				<Route path="/Beers/:beerId" element={<BeerDetails />} />
 				<Route path="/Random-Beer" element={<RandomBeer />} />
-				{/* <Route path="*" element={ <ErrorPage /> } /> */}
+				<Route path="/Add-Beer" element={ <AddBeer /> } />
 			</Routes>
 		</div>
 	);
